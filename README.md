@@ -1,1 +1,1 @@
-# scale-between-breakpoints
+# Scale between breakpoints
