@@ -1,0 +1,80 @@
+/* functions */
+
+$desktopBaseWidth : 1200;
+$desktopBreakpoint:760px;
+$mobileBaseWidth : 320;
+
+@function vw-desktop($valueinpx){
+    @return (($valueinpx / $desktopBaseWidth) * 100) + vw;
+}
+@function vw-mobile($valueinpx){
+    @return (($valueinpx / $mobileBaseWidth) * 100) + vw;
+}
+
+body{
+  font-family: Helvetica, Arial, sans-serif;;
+}
+.card{
+  width: vw-mobile(250);
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: vw-mobile(20);
+  background: #efefef;
+  @media (min-width:$desktopBreakpoint){
+    width: vw-desktop(600);
+    padding: vw-desktop(20);
+  }
+  img{
+    width: 100%;
+    height: auto;
+    margin: 0 0 vw-mobile(20) 0;
+    @media (min-width:$desktopBreakpoint){
+      margin:0 0 vw-desktop(20);
+    }
+  }
+
+  p{
+    font-size: vw-mobile(14);
+    line-height: 1.5em;
+    margin: 0 0 vw-mobile(20) 0;
+    padding: 0;
+    @media (min-width:$desktopBreakpoint){
+      font-size: vw-desktop(16);
+      margin: 0 0 vw-desktop(20) 0;
+    }
+  }
+
+  h1{
+    margin: 0 0 vw-mobile(20);
+    font-size: vw-mobile(30);
+    line-height: 1em;
+    @media (min-width:$desktopBreakpoint){
+      font-size: vw-desktop(24);
+      margin: 0 0 vw-desktop(20) 0;
+      text-align:center;
+    }
+  }
+
+  h2{
+    margin: 0 0 vw-mobile(20);
+    font-size: vw-mobile(25);
+    line-height: 1em;
+    @media (min-width:$desktopBreakpoint){
+      font-size: vw-desktop(21);
+      margin: 0 0 vw-desktop(20) 0;
+      clear: both;
+      text-align:center;
+    }
+  }
+  @media (min-width:$desktopBreakpoint){
+    .left{float: left;}
+    .right{float: right;}
+    .width55{ width: vw-desktop(308); }
+    .width40{ width: vw-desktop(224); }
+    &:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+  }
+}
